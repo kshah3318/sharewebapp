@@ -16,7 +16,7 @@ const routes: RouteObject[] = [
   },
   {
     path: '*',
-    element: <SignIn /> // Redirect to SignIn for any undefined routes
+    element: <SignUp /> // Redirect to SignIn for any undefined routes
   }
 ];
 
@@ -24,6 +24,4 @@ const App = () => {
   const router = createBrowserRouter(routes);
   return  <RouterProvider router={router} />;
 }
-
-
 export default App;
