@@ -37,7 +37,7 @@ const SignIn = () => {
         }}
       >
         <Typography variant="h5" sx={{ mb: 3, textAlign: 'center' }}>
-          Sign In
+           Sign in to our platform
         </Typography>
         <TextField
           label="Your Email"
