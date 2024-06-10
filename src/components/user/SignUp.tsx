@@ -1,6 +1,7 @@
 import React , { useState } from "react";
-import { Box, Button, Checkbox, FormControlLabel, TextField, Typography, Link } from '@mui/material';
+import { Box, Button, Checkbox, FormControlLabel, TextField, Typography } from '@mui/material';
 import backgroundImage from '../../assets/images/signup.svg'; // Update the path as needed
+import { Link } from "react-router-dom";
 
 
 const SignUp = () => {
@@ -89,7 +90,7 @@ const SignUp = () => {
             Sign Up
           </Button>
           <Typography variant="body2" align="center">
-            Already have an account? <Link href="/signin">Login here</Link>
+            Already have an account? <Link to="/signin">Login here</Link>
           </Typography>
         </Box>
       </Box>
