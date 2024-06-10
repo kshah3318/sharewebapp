@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider, RouteObject } from 'react-router-d
 import SignIn from './components/user/SignIn';
 import SignUp from './components/user/SignUp';
 import Settings from './components/user/Settings';
-import Transactions from './components/user/Transactions';
+import CompanyListing from './components/user/CompanyListing';
 import Dashboard from './components/user/Dashboard';
 import './App.css';
 const routes: RouteObject[] = [
@@ -25,8 +25,8 @@ const routes: RouteObject[] = [
     element: <Settings />
   },
   {
-    path: '/transactions',
-    element: <Transactions />
+    path: '/companies',
+    element: <CompanyListing />
   },
   {
     path: '*',

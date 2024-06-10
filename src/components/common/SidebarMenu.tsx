@@ -11,7 +11,7 @@ import ListItemText from '@mui/material/ListItemText';
 import SettingsIcon from '@mui/icons-material/Settings';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import { Link } from 'react-router-dom';
-import { makeStyles } from '@mui/material/styles';
+import { styled } from '@mui/system'
 
 const drawerWidth = 240;
 const DrawerList = (
@@ -19,11 +19,11 @@ const DrawerList = (
      <List>
         {[
           { text: 'Settings', icon: <SettingsIcon />, link: '/settings' },
-          { text: 'Transactions', icon: <AccountBalanceIcon />, link: '/transactions' },
+          { text: 'Companies', icon: <AccountBalanceIcon />, link: '/companies' },
         ].map((item) => (
           <ListItem key={item.text} disablePadding>
             <ListItemButton component={Link} to={item.link}>
-              <ListItemIcon>{item.icon}</ListItemIcon>
+              <ListItemIcon sx={{ color: 'white' }}>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
             </ListItemButton>
           </ListItem>
@@ -32,9 +32,20 @@ const DrawerList = (
     </Box>
 );
 
+const StyledDrawer = styled(Drawer)({
+  width: drawerWidth,
+  flexShrink: 0,
+  '& .MuiDrawer-paper': {
+    width: drawerWidth,
+    boxSizing: 'border-box',
+    backgroundColor: '#262b40',
+    color: 'white',
+  },
+});
+
 const SidebarMenu = () => {
     return(
-         <Drawer
+         <StyledDrawer
           variant="permanent"
             sx={{
                 width: drawerWidth,
@@ -43,7 +54,7 @@ const SidebarMenu = () => {
             }}
     >
       {DrawerList}
-    </Drawer>
+    </StyledDrawer>
     );
 };
 
