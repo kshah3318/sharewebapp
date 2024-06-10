@@ -1,6 +1,6 @@
 import React , { useState } from "react";
 import { Box, Button, Checkbox, FormControlLabel, TextField, Typography, Link } from '@mui/material';
-import backgroundImage from '../assets/images/signup.svg'; // Update the path as needed
+import backgroundImage from '../../assets/images/signup.svg'; // Update the path as needed
 
 
 const SignUp = () => {
