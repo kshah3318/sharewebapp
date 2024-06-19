@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Box, Button, Checkbox, FormControlLabel, TextField, Typography, Link } from '@mui/material';
-import backgroundImage from '../assets/images/signup.svg'; // Update the path as needed
+import { Box, Button, Checkbox, FormControlLabel, TextField, Typography } from '@mui/material';
+import backgroundImage from '../../assets/images/signup.svg'; // Update the path as needed
+import { Link } from "react-router-dom";
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
@@ -77,10 +78,10 @@ const SignIn = () => {
           Sign In
         </Button>
         <Typography variant="body2" align="center" sx={{ mb: 2 }}>
-          <Link href="/forgot-password">Lost Password?</Link>
+          <Link to="/forgot-password">Lost Password?</Link>
         </Typography>
         <Typography variant="body2" align="center">
-          Not registered? <Link href="/signup">Create account</Link>
+          Not registered? <Link to="/signup">Create account</Link>
         </Typography>
       </Box>
     </Box>
