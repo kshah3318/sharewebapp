@@ -1,6 +1,13 @@
 import mongoose from 'mongoose';
+import AutoIncrementFactory from 'mongoose-sequence';
+
+const AutoIncrement = AutoIncrementFactory(mongoose);
 
 const userSchema = new mongoose.Schema({
+  userId: {
+    type: Number,
+    unique: true
+  },
   username: {
     type: String,
     required: true,
@@ -22,6 +29,8 @@ const userSchema = new mongoose.Schema({
     }
   ]
 }, { timestamps: true });
+
+userSchema.plugin(AutoIncrement, { inc_field: 'userId' });
 
 const User = mongoose.model('User', userSchema);
 export default User;
