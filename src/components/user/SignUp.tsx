@@ -7,13 +7,40 @@ import { Link } from "react-router-dom";
 const SignUp = () => {
 
     const [email, setEmail] = useState('');
+    const[userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [termsAccepted, setTermsAccepted] = useState(false);
-    const handleSignup = () => {
-        // Handle the signup logic here
-        console.log('Signup:', { email, password, confirmPassword, termsAccepted });
+    const handleSignup = async () => {
+      const data = {
+          username: userName,
+          email: email,
+          password: password,
       };
+  
+      try {
+          const response = await fetch("http://localhost:3000/signup", {
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json"
+              },
+              body: JSON.stringify(data)
+          });
+  
+          if (response.ok) {
+              const result = await response.json();
+              console.log('Signup successful:', result);
+          } else {
+              const errorData = await response.json();
+              console.error('Signup failed:', errorData);
+          }
+      } catch (error) {
+          console.error('Error during signup:', error);
+      }
+  
+      console.log('Signup data:', { email, password, confirmPassword, termsAccepted, userName });
+  };
+  
 
     return (
         <Box
@@ -43,6 +70,14 @@ const SignUp = () => {
           <Typography variant="h5" sx={{ mb: 3, textAlign: 'center' }}>
           Create an account
           </Typography>
+          <TextField
+            label="username here"
+            variant="outlined"
+            fullWidth
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
+            sx={{ mb: 2 }}
+          />
           <TextField
             label="example@company.com"
             variant="outlined"
